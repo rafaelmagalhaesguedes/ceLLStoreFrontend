@@ -1,13 +1,14 @@
 import { useFetchProduct } from '../../hooks/useFetchProduct';
 import { ProductType } from '../../types/types';
+import { ProductCard, ProductContainer } from './Styles';
 
 function Product() {
   const { product } = useFetchProduct();
 
   return (
-    <div>
+    <ProductContainer>
       {product && product.map((item: ProductType) => (
-        <div key={ item.id }>
+        <ProductCard key={ item.id }>
           <img src={ item.thumbnail } alt={ item.title } />
           <h3>{item.title}</h3>
           <p>
@@ -26,9 +27,9 @@ function Product() {
             {item.available_quantity}
           </p>
           <button type="button">Add to cart</button>
-        </div>
+        </ProductCard>
       ))}
-    </div>
+    </ProductContainer>
   );
 }
 
