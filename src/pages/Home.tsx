@@ -1,11 +1,11 @@
 import Product from '../components/Product/Product';
+import { Container } from './Styles';
 
 function Home() {
   return (
-    <div>
-      <h1>Cell Store</h1>
+    <Container>
       <Product />
-    </div>
+    </Container>
   );
 }
 
