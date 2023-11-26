@@ -2,9 +2,17 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 1rem;
   background-color: #222;
+  padding: 1rem;
   color: #fff;
+`;
+
+export const HeaderWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  padding: 0 1rem;
+  align-items: center;
 `;
