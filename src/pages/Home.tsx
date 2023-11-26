@@ -1,6 +1,11 @@
+import Product from '../components/Product/Product';
+
 function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <h1>Cell Store</h1>
+      <Product />
+    </div>
   );
 }
 
