@@ -16,8 +16,17 @@ export const ProductCard = styled.div`
   heigt: auto;
   margin: 1.5rem;
   padding: 1rem;
+  background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
-  box-shadow: 0 0 0.5rem #ccc;
   justify-content: space-between;
+`;
+
+export const ButtonCart = styled.button`
+  background-color: #f80;
+  padding: 0.5rem;
+  color: #fff;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 600;
 `;

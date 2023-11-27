@@ -1,6 +1,6 @@
 import { useFetchProduct } from '../../hooks/useFetchProduct';
 import { ProductType } from '../../types/types';
-import { ProductCard, ProductContainer } from './Styles';
+import { ButtonCart, ProductCard, ProductContainer } from './Styles';
 
 function Product() {
   const { product } = useFetchProduct();
@@ -26,7 +26,7 @@ function Product() {
             {' '}
             {item.available_quantity}
           </p>
-          <button type="button">Add to cart</button>
+          <ButtonCart type="button">Add to cart</ButtonCart>
         </ProductCard>
       ))}
     </ProductContainer>
