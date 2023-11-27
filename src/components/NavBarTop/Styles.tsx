@@ -22,7 +22,7 @@ export const NavTop = styled.nav`
   }
 
   li {
-    gap: 3rem;
+    gap: 1rem;
     display: flex;
   }
 
@@ -30,7 +30,7 @@ export const NavTop = styled.nav`
     color: #fff;
     text-decoration: none;
     font-size: 0.8rem;
-    font-weight: 600;
+    font-weight: normal;
     margin: 0 0.5rem;
   }
 `;
