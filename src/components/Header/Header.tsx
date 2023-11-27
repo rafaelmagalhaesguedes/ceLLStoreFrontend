@@ -1,20 +1,19 @@
-import { HeaderContainer, HeaderWrapper } from './Styles';
+import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { HeaderContainer, HeaderWrapper, SearchBar } from './Styles';
 
 function Header() {
   return (
     <HeaderContainer>
       <HeaderWrapper>
-        {/* Logo */}
         <div>
-          <h1>Logo</h1>
+          <h1>Cell Store</h1>
         </div>
-        {/* Search */}
-        <div>
-          <input type="text" placeholder="Search..." />
-          <button type="button">Search</button>
-        </div>
-        {/* Cart Button */}
-        <button type="button">Cart</button>
+        <SearchBar>
+          <input type="text" placeholder="Buscar..." />
+          <FontAwesomeIcon icon={ faSearch } />
+        </SearchBar>
+        <FontAwesomeIcon icon={ faCartShopping } size="2x" />
       </HeaderWrapper>
     </HeaderContainer>
   );
