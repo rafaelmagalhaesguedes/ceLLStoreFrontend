@@ -2,10 +2,17 @@ import styled from 'styled-components';
 
 export const ProductContainer = styled.div`
   display: flex;
+  flex-direction: column;
+  width: 80%;
+  heigth: auto;
+`;
+
+export const ProductWrapper = styled.div`
+  display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-content: center;
-  width: 80%;
+  width: 100%;
   heigth: auto;
 `;
 
