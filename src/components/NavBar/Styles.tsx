@@ -28,7 +28,7 @@ export const Nav = styled.nav`
   a {
     color: #fff;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     margin: 0 0.5rem;
   }

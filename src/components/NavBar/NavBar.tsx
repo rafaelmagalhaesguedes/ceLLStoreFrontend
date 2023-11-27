@@ -7,8 +7,9 @@ function NavBar() {
         <ul>
           <li>
             <a href="/">Celulares e Telefones</a>
-            <a href="/">Cameras e acessórios</a>
-            <a href="/">Eletrônicos</a>
+            <a href="/">Câmeras e Acessórios</a>
+            <a href="/">Eletrônicos, Áudio e Vídeo</a>
+            <a href="/">Games</a>
             <a href="/">Informática</a>
           </li>
         </ul>
