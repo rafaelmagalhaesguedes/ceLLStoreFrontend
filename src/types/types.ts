@@ -8,4 +8,7 @@ export type ProductType = {
   seller: {
     nickname: string;
   };
+  shipping: {
+    free_shipping: boolean;
+  };
 };

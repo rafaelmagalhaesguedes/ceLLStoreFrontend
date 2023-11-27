@@ -11,22 +11,17 @@ function Product() {
         <ProductCard key={ item.id }>
           <img src={ item.thumbnail } alt={ item.title } />
           <h3>{item.title}</h3>
-          <p>
-            Price:
-            {' '}
-            {item.price}
-          </p>
-          <p>
-            Condition:
-            {' '}
-            {item.condition}
-          </p>
-          <p>
-            Available Quantity:
-            {' '}
-            {item.available_quantity}
-          </p>
-          <ButtonCart type="button">Add to cart</ButtonCart>
+          <div>
+            <p>
+              R$
+              {' '}
+              {item.price}
+            </p>
+            <span>
+              {item.shipping.free_shipping ? 'Frete Grátis' : ''}
+            </span>
+          </div>
+          <ButtonCart type="button">Adicionar ao carrinho</ButtonCart>
         </ProductCard>
       ))}
     </ProductContainer>
