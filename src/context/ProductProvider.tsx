@@ -1,16 +1,18 @@
 import { ReactNode } from 'react';
-import { useFetchProduct } from '../hooks/useFetchProduct';
 import ProductContext from './ProductContext';
+import { useFetchProduct } from '../hooks/useFetchProduct';
 
 type ProductProviderProps = {
   children: ReactNode;
 };
 
 function ProductProvider({ children }: ProductProviderProps) {
-  const { product } = useFetchProduct();
+  const { product, setUrl, loading } = useFetchProduct();
 
   const contextValue = {
     product,
+    setUrl,
+    loading,
   };
 
   return (
