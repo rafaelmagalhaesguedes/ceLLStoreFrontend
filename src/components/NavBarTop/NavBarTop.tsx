@@ -6,9 +6,7 @@ function NavBarTop() {
       <NavTop>
         <ul>
           <li>
-            <a href="/">LinkedIn</a>
-            <a href="/">GitHub</a>
-            <a href="/">Instagran</a>
+            <a href="/">A melhor loja do Brasil!</a>
           </li>
         </ul>
 

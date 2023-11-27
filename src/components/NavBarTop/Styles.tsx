@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const NavTopContainer = styled.div`
   display: flex;
-  background-color: #4A3F35;
+  background-color: #000;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -13,7 +13,7 @@ export const NavTop = styled.nav`
   justify-content: space-between;
   align-items: center;
   color: #fff;
-  padding: 0.5rem 1.5rem;
+  padding: 0.3rem 1.5rem;
   width: 80%;
 
   ul {
