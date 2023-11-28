@@ -5,6 +5,7 @@ export const ProductContainer = styled.div`
   flex-direction: column;
   width: 80%;
   heigth: auto;
+  margin-top: 1rem;
 `;
 
 export const ProductWrapper = styled.div`
@@ -65,5 +66,43 @@ export const ButtonCart = styled.button`
 
   &:hover {
     background-color: #f60;
+  }
+`;
+
+export const LoadMore = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1rem 0 2rem 0;
+`;
+
+export const ButtonLoadMore = styled.button`
+  background-color: #f80;
+  padding: 0.5rem;
+  color: #fff;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin: 0.5rem 0;
+  width: 20rem;
+
+  &:hover {
+    background-color: #f60;
+  }
+`;
+
+export const ProductNotFound = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #1e1e1e;
+
+  h1 {
+    color: #fff;
   }
 `;
