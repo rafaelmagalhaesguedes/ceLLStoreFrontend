@@ -1,8 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useCallback, useEffect } from 'react';
 import { ProductType } from '../types/types';
 
-type SetProductType = (product: ProductType[]) => void;
+type SetProductType = any;
 type SetLoadingType = (loading: boolean) => void;
 
 function useFilter(
@@ -10,20 +9,6 @@ function useFilter(
   product: ProductType[],
   setLoading: SetLoadingType,
 ) {
-  //
-  // Filter by string
-  const filterByString = useCallback((search: string) => {
-    setLoading(true);
-    const filtered = product.filter(({ title }) => {
-      return title.toLowerCase().includes(search.toLowerCase());
-    });
-    setProduct(filtered);
-    setLoading(false);
-  }, []);
-
-  useEffect(() => {
-    filterByString('');
-  }, [filterByString]);
   //
   // Filter by free shipping
   const filterFreeShipping = () => {
@@ -52,7 +37,7 @@ function useFilter(
     return sorted;
   };
 
-  return { filterByString, filterFreeShipping, filterMostExpensive, filterCheapest };
+  return { filterFreeShipping, filterMostExpensive, filterCheapest };
 }
 
 export default useFilter;
