@@ -1,18 +1,31 @@
 import { ReactNode } from 'react';
 import ProductContext from './ProductContext';
-import { useFetchProduct } from '../hooks/useFetchProduct';
+import { useFetch } from '../hooks/useFetch';
+import useFilter from '../hooks/useFilter';
 
 type ProductProviderProps = {
   children: ReactNode;
 };
 
 function ProductProvider({ children }: ProductProviderProps) {
-  const { product, setUrl, loading } = useFetchProduct();
+  const { product, setProduct, setCategorie, loading, setLoading } = useFetch();
+  const {
+    filterByString,
+    filterFreeShipping,
+    filterMostExpensive,
+    filterCheapest,
+  } = useFilter(setProduct, product, setLoading);
 
   const contextValue = {
     product,
-    setUrl,
+    setProduct,
+    setCategorie,
+    filterByString,
+    filterFreeShipping,
+    filterMostExpensive,
+    filterCheapest,
     loading,
+    setLoading,
   };
 
   return (
