@@ -1,12 +1,18 @@
 import { useContext, useState } from 'react';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { MenuItem, Nav, NavContainer, Submenu } from './Styles';
 import ProductContext from '../../context/ProductContext';
+import { categories } from '../../helpers/categories';
+import { MenuItem, Nav, NavContainer, Submenu } from './Styles';
 
 function NavBar() {
   const [isSubmenuOpen, setSubmenuOpen] = useState(false);
-  const { setUrl } = useContext(ProductContext);
+  const {
+    setCategorie,
+    filterFreeShipping,
+    filterMostExpensive,
+    filterCheapest,
+  } = useContext(ProductContext);
 
   const handleMouseEnter = () => {
     setSubmenuOpen(true);
@@ -21,21 +27,11 @@ function NavBar() {
       <Nav>
         <ul>
           <li>
-            <button onClick={ () => setUrl('MLB1051') }>
-              Celulares e Telefones
-            </button>
-            <button onClick={ () => setUrl('MLB1039') }>
-              Câmeras e Acessórios
-            </button>
-            <button onClick={ () => setUrl('MLB5726') }>
-              Eletrônicos, Áudio e Vídeo
-            </button>
-            <button onClick={ () => setUrl('MLB1648') }>
-              Informática
-            </button>
-            <button onClick={ () => setUrl('MLB1144') }>
-              Games
-            </button>
+            {categories.map((category) => (
+              <button key={ category.id } onClick={ () => setCategorie(category.id) }>
+                {category.name}
+              </button>
+            ))}
           </li>
         </ul>
         <MenuItem onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>
@@ -46,9 +42,15 @@ function NavBar() {
           </span>
           {isSubmenuOpen && (
             <Submenu>
-              <li>Menor Preço</li>
-              <li>Maior Preço</li>
-              <li>Frete Grátis</li>
+              <button onClick={ filterCheapest }>
+                Menor Preço
+              </button>
+              <button onClick={ filterMostExpensive }>
+                Maior Preço
+              </button>
+              <button onClick={ filterFreeShipping }>
+                Frete Grátis
+              </button>
             </Submenu>
           )}
         </MenuItem>

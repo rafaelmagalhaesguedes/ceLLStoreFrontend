@@ -27,14 +27,20 @@ export const Nav = styled.nav`
     display: flex;
   }
 
-  a {
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
     color: #fff;
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 600;
     margin: 0 0.5rem;
-    font-weight: normal;
     letter-spacing: 0.5px;
+
+    &:hover {
+      color: #f80;
+    }
   }
 `;
 
@@ -50,7 +56,7 @@ export const Submenu = styled.ul`
   border-radius: 0.5rem;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.9);
 
-  li {
+  button {
     margin: 0.5rem 0;
     color: #fff;
     font-size: 0.8rem;
