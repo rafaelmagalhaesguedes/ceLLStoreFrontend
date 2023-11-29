@@ -1,9 +1,9 @@
 import { useContext, useState } from 'react';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ProductContext from '../../context/ProductContext';
 import { categories } from '../../helpers/categories';
 import { MenuItem, Nav, NavContainer, Submenu } from './Styles';
+import ProductContext from '../../context/ProductContext';
 
 function NavBar() {
   const [isSubmenuOpen, setSubmenuOpen] = useState(false);
