@@ -1,15 +1,30 @@
-/* eslint-disable no-alert */
-import { useContext } from 'react';
-import ProductContext from '../context/ProductContext';
+import Swal from 'sweetalert2';
+import { ProductType } from '../types/types';
 
-export function useCart() {
-  const { cart, setCart } = useContext(ProductContext);
-
+export function useCart(cart: ProductType[], setCart: any) {
   const cartTotal = cart
     .reduce((acc: number, item: any) => acc + item.price * item.quantity, 0);
 
   const cartTotalFormatted = cartTotal
     .toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
+  const addToCart = (item: ProductType) => {
+    const existingItem = cart.find((cartItem) => cartItem.id === item.id);
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      item.quantity = 1;
+      cart.push(item);
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    setCart([...cart]);
+  };
+
+  const deleteItem = (itemId: string) => {
+    const newCart = cart.filter((cartItem) => cartItem.id !== itemId);
+    localStorage.setItem('cart', JSON.stringify(newCart));
+    setCart(newCart);
+  };
 
   const increaseQuantity = (itemId: string) => {
     const item = cart.find((cartItem) => cartItem.id === itemId);
@@ -19,7 +34,12 @@ export function useCart() {
         localStorage.setItem('cart', JSON.stringify(cart));
         setCart([...cart]);
       } else {
-        alert('You cannot add more of this item, as it exceeds the available quantity.');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'You cannot add more of this item, as it exceeds the available quantity.',
+          timer: 3000,
+        });
       }
     }
   };
@@ -33,11 +53,6 @@ export function useCart() {
     }
   };
 
-  const deleteItem = (itemId: string) => {
-    const newCart = cart.filter((cartItem) => cartItem.id !== itemId);
-    localStorage.setItem('cart', JSON.stringify(newCart));
-    setCart(newCart);
-  };
-
-  return { increaseQuantity, decreaseQuantity, deleteItem, cartTotalFormatted };
+  return {
+    addToCart, increaseQuantity, decreaseQuantity, deleteItem, cartTotalFormatted };
 }

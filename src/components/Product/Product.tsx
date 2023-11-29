@@ -13,24 +13,12 @@ import {
 } from './Styles';
 
 function Product() {
-  const { product, loading, cart, setCart } = useContext(ProductContext);
+  const { product, loading, addToCart } = useContext(ProductContext);
 
   const [itemsToShow, setItemsToShow] = useState(12);
 
   // Load data when click on button load more
   const loadMore = () => setItemsToShow((prev) => prev + 12);
-
-  const addToCart = (item: ProductType) => {
-    const existingItem = cart.find((cartItem) => cartItem.id === item.id);
-    if (existingItem) {
-      existingItem.quantity += 1;
-    } else {
-      item.quantity = 1;
-      cart.push(item);
-    }
-    localStorage.setItem('cart', JSON.stringify(cart));
-    setCart([...cart]);
-  };
 
   return (
     <ProductContainer>
