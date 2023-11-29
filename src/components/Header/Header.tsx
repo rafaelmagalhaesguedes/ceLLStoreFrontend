@@ -12,7 +12,11 @@ function Header() {
   return (
     <HeaderContainer>
       <HeaderWrapper>
-        <Logo><h1>Cell Store</h1></Logo>
+        <Logo>
+          <Link to="/">
+            <h1>Cell Store</h1>
+          </Link>
+        </Logo>
         <SearchBar />
         <CartIconWrapper>
           <Link to="/shopping-cart">

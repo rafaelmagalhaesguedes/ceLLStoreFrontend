@@ -19,6 +19,14 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const Logo = styled.div`
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  a:visited {
+    color: inherit;
+  }
 `;
 
 export const CartIconWrapper = styled.div`
