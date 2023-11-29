@@ -20,45 +20,43 @@ function Product() {
   const loadMore = () => setItemsToShow((prev) => prev + 12);
 
   return (
-    <>
-      <ProductContainer>
-        {!loading ? (
-          <>
-            <ProductWrapper>
-              {product && product.slice(0, itemsToShow).map((item: ProductType) => (
-                <ProductCard key={ item.id }>
-                  <img src={ item.thumbnail } alt={ item.title } />
-                  <h3>{item.title}</h3>
-                  <div>
-                    <p>
-                      R$
-                      {' '}
-                      {item.price}
-                    </p>
-                    <span>
-                      {item.shipping.free_shipping ? 'Frete Grátis' : ''}
-                    </span>
-                  </div>
-                  <ButtonCart type="button">Adicionar ao carrinho</ButtonCart>
-                </ProductCard>
-              ))}
-            </ProductWrapper>
-            <LoadMore>
-              {product && itemsToShow < product.length && (
-                <ButtonLoadMore onClick={ loadMore }>Mais Produtos</ButtonLoadMore>
-              )}
-            </LoadMore>
-          </>
-        ) : (
-          <Loading />
-        )}
-      </ProductContainer>
-      {product && product.length === 0 && (
-        <ProductNotFound>
-          <h1>Nenhum produto encontrado</h1>
-        </ProductNotFound>
+    <ProductContainer>
+      {!loading ? (
+        <>
+          <ProductWrapper>
+            {product && product.slice(0, itemsToShow).map((item: ProductType) => (
+              <ProductCard key={ item.id }>
+                <img src={ item.thumbnail } alt={ item.title } />
+                <h3>{item.title}</h3>
+                <div>
+                  <p>
+                    R$
+                    {' '}
+                    {item.price}
+                  </p>
+                  <span>
+                    {item.shipping.free_shipping ? 'Frete Grátis' : ''}
+                  </span>
+                </div>
+                <ButtonCart type="button">Adicionar ao carrinho</ButtonCart>
+              </ProductCard>
+            ))}
+          </ProductWrapper>
+          <LoadMore>
+            {product && itemsToShow < product.length && (
+              <ButtonLoadMore onClick={ loadMore }>Mais Produtos</ButtonLoadMore>
+            )}
+          </LoadMore>
+          {product && product.length === 0 && (
+            <ProductNotFound>
+              <h1>Nenhum produto encontrado</h1>
+            </ProductNotFound>
+          )}
+        </>
+      ) : (
+        <Loading />
       )}
-    </>
+    </ProductContainer>
   );
 }
 
