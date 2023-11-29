@@ -8,10 +8,21 @@ function SearchBar() {
   const [search, setSearch] = useState('');
   const { filterByString } = useContext(ProductContext);
 
-  const handleSearch = () => filterByString(search);
+  const handleSearch = () => {
+    if (search === '') return;
+    filterByString(search);
+    clearSearch();
+  };
 
   const handleEnter = (e: any) => {
-    if (e.key === 'Enter') handleSearch();
+    if (e.key === 'Enter') {
+      handleSearch();
+      clearSearch();
+    }
+  };
+
+  const clearSearch = () => {
+    setSearch('');
   };
 
   return (

@@ -33,9 +33,9 @@ function ProductProvider({ children }: ProductProviderProps) {
   const contextValue = {
     dataProduct,
     product,
+    loading,
     setProduct,
     setCategorie,
-    loading,
     filterByString,
     filterCheapest,
     filterMostExpensive,
