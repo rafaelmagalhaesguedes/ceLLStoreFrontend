@@ -1,31 +1,45 @@
-import { ReactNode } from 'react';
+// ProductProvider.tsx
+import { ReactNode, useEffect, useState } from 'react';
 import ProductContext from './ProductContext';
-import { useFetch } from '../hooks/useFetch';
+import { ProductType } from '../types/types';
 import useFilter from '../hooks/useFilter';
+import { useFilterByString } from '../hooks/useFilterByString';
+import useFetchData from '../hooks/useFetchData';
 
 type ProductProviderProps = {
   children: ReactNode;
 };
 
 function ProductProvider({ children }: ProductProviderProps) {
-  const { product, setProduct, setCategorie, loading, setLoading } = useFetch();
+  const [dataProduct, setDataProduct] = useState<ProductType[]>([]);
+  const [product, setProduct] = useState<ProductType[]>([]);
+  const [categorie, setCategorie] = useState<string>('MLB1051');
+
+  const { fetchData, loading } = useFetchData(setDataProduct, categorie);
+  const { filterByString } = useFilterByString(dataProduct, setProduct);
   const {
-    filterByString,
-    filterFreeShipping,
-    filterMostExpensive,
     filterCheapest,
-  } = useFilter(setProduct, product, setLoading);
+    filterMostExpensive,
+    filterFreeShipping } = useFilter(dataProduct, setProduct);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData, categorie]);
+
+  useEffect(() => {
+    setProduct(dataProduct);
+  }, [dataProduct]);
 
   const contextValue = {
+    dataProduct,
     product,
     setProduct,
     setCategorie,
-    filterByString,
-    filterFreeShipping,
-    filterMostExpensive,
-    filterCheapest,
     loading,
-    setLoading,
+    filterByString,
+    filterCheapest,
+    filterMostExpensive,
+    filterFreeShipping,
   };
 
   return (
