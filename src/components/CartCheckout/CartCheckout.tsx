@@ -1,9 +1,9 @@
-import { useCart } from '../../hooks/useCart';
-import { ProductType } from '../../types/types';
+import { useContext } from 'react';
 import { CartCheckoutContainer, Subtotal, ButtonFinish } from './Styles';
+import ProductContext from '../../context/ProductContext';
 
-function CartCheckout({ cart } : { cart: ProductType[] }) {
-  const { cartTotalFormatted } = useCart();
+function CartCheckout() {
+  const { cart, cartTotalFormatted } = useContext(ProductContext);
 
   return (
     <CartCheckoutContainer>
