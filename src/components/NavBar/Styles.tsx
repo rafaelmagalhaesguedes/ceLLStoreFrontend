@@ -33,7 +33,7 @@ export const Nav = styled.nav`
     cursor: pointer;
     color: #fff;
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 600;
     margin: 0 0.5rem;
     letter-spacing: 0.5px;
