@@ -23,15 +23,17 @@ export const Logo = styled.div`
 
 export const CartIconWrapper = styled.div`
   position: relative;
+  cursor: pointer;
 `;
 
 export const CartCount = styled.span`
   position: absolute;
-  top: -10px;
+  top: -15px;
   right: -10px;
   background: red;
   color: white;
-  border-radius: 50%;
-  padding: 5px 10px;
-  font-size: 14px;
+  border-radius: 20px;
+  padding: 3px 7px;
+  font-size: 13px;
+  font-weight: bold;
 `;

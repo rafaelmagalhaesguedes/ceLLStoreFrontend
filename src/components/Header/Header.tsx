@@ -14,7 +14,7 @@ function Header() {
         <Logo><h1>Cell Store</h1></Logo>
         <SearchBar />
         <CartIconWrapper>
-          <FontAwesomeIcon icon={ faCartShopping } size="3x" />
+          <FontAwesomeIcon icon={ faCartShopping } size="2x" />
           <CartCount>{cart.length}</CartCount>
         </CartIconWrapper>
       </HeaderWrapper>
