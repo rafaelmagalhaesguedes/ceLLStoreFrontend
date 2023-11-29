@@ -13,11 +13,22 @@ import {
 } from './Styles';
 
 function Product() {
-  const { product, loading } = useContext(ProductContext);
+  const { product, loading, cart, setCart } = useContext(ProductContext);
+
   const [itemsToShow, setItemsToShow] = useState(12);
 
   // Load data when click on button load more
   const loadMore = () => setItemsToShow((prev) => prev + 12);
+
+  const addToCart = (item: ProductType) => {
+    let existingCart = cart;
+    if (!Array.isArray(existingCart)) {
+      existingCart = [];
+    }
+    const newCart = [...existingCart, item];
+    localStorage.setItem('cart', JSON.stringify(newCart));
+    setCart(newCart); // Update cart in context
+  };
 
   return (
     <ProductContainer>
@@ -38,7 +49,12 @@ function Product() {
                     {item.shipping.free_shipping ? 'Frete Grátis' : ''}
                   </span>
                 </div>
-                <ButtonCart type="button">Adicionar ao carrinho</ButtonCart>
+                <ButtonCart
+                  type="button"
+                  onClick={ () => addToCart(item) }
+                >
+                  Adicionar ao carrinho
+                </ButtonCart>
               </ProductCard>
             ))}
           </ProductWrapper>
