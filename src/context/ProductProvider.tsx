@@ -5,6 +5,7 @@ import { ProductType } from '../types/types';
 import useFilter from '../hooks/useFilter';
 import { useFilterByString } from '../hooks/useFilterByString';
 import useFetchData from '../hooks/useFetchData';
+import { useCart } from '../hooks/useCart';
 
 type ProductProviderProps = {
   children: ReactNode;
@@ -22,6 +23,10 @@ function ProductProvider({ children }: ProductProviderProps) {
     filterCheapest,
     filterMostExpensive,
     filterFreeShipping } = useFilter(dataProduct, setProduct);
+  const {
+    addToCart,
+    increaseQuantity,
+    decreaseQuantity, deleteItem, cartTotalFormatted } = useCart(cart, setCart);
 
   useEffect(() => {
     const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -39,6 +44,11 @@ function ProductProvider({ children }: ProductProviderProps) {
   const contextValue = {
     cart,
     setCart,
+    addToCart,
+    increaseQuantity,
+    decreaseQuantity,
+    deleteItem,
+    cartTotalFormatted,
     dataProduct,
     product,
     loading,
