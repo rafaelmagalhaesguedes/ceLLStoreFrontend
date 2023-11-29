@@ -1,6 +1,7 @@
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { CartCount,
   CartIconWrapper, HeaderContainer, HeaderWrapper, Logo } from './Styles';
 import SearchBar from '../SearchBar/SearchBar';
@@ -14,8 +15,10 @@ function Header() {
         <Logo><h1>Cell Store</h1></Logo>
         <SearchBar />
         <CartIconWrapper>
-          <FontAwesomeIcon icon={ faCartShopping } size="2x" />
-          <CartCount>{cart.length}</CartCount>
+          <Link to="/shopping-cart">
+            <FontAwesomeIcon icon={ faCartShopping } size="2x" />
+            <CartCount>{cart.length}</CartCount>
+          </Link>
         </CartIconWrapper>
       </HeaderWrapper>
     </HeaderContainer>

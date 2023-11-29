@@ -24,6 +24,10 @@ export const Logo = styled.div`
 export const CartIconWrapper = styled.div`
   position: relative;
   cursor: pointer;
+  
+  a:visited {
+    color: inherit;
+  }
 `;
 
 export const CartCount = styled.span`
