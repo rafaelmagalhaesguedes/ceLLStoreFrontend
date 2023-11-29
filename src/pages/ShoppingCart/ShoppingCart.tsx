@@ -1,51 +1,18 @@
 /* eslint-disable no-alert */
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReply, faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
+import { useCart } from '../../hooks/useCart';
 import ProductContext from '../../context/ProductContext';
 import {
   ButtonFinish, Cart, CartCheckout, CartContainer, CartInfo, Subtotal } from './Styles';
 
 function ShoppingCart() {
-  const { cart, setCart } = useContext(ProductContext);
+  const { cart } = useContext(ProductContext);
   const navigate = useNavigate();
-
-  const cartTotal = cart
-    .reduce((acc: number, item: any) => acc + item.price * item.quantity, 0);
-
-  const cartTotalFormatted = cartTotal
-    .toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
-  const increaseQuantity = (itemId: string) => {
-    const item = cart.find((cartItem) => cartItem.id === itemId);
-    if (item) {
-      // Check if the quantity is less than the available quantity
-      if (item.quantity < item.available_quantity) {
-        item.quantity += 1;
-        localStorage.setItem('cart', JSON.stringify(cart));
-        setCart([...cart]); // Update cart in context
-      } else {
-        // Show an error message
-        alert('You cannot add more of this item, as it exceeds the available quantity.');
-      }
-    }
-  };
-
-  const decreaseQuantity = (itemId: string) => {
-    const item = cart.find((cartItem) => cartItem.id === itemId);
-    if (item && item.quantity > 1) {
-      item.quantity -= 1;
-      localStorage.setItem('cart', JSON.stringify(cart));
-      setCart([...cart]); // Update cart in context
-    }
-  };
-
-  const deleteItem = (itemId: string) => {
-    const newCart = cart.filter((cartItem) => cartItem.id !== itemId);
-    localStorage.setItem('cart', JSON.stringify(newCart));
-    setCart(newCart); // Update cart in context
-  };
+  const {
+    increaseQuantity, decreaseQuantity, deleteItem, cartTotalFormatted } = useCart();
 
   return (
     <CartContainer>
