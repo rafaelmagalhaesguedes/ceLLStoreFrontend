@@ -41,6 +41,12 @@ function ShoppingCart() {
     }
   };
 
+  const deleteItem = (itemId: string) => {
+    const newCart = cart.filter((cartItem) => cartItem.id !== itemId);
+    localStorage.setItem('cart', JSON.stringify(newCart));
+    setCart(newCart); // Update cart in context
+  };
+
   return (
     <CartContainer>
       <Cart>
@@ -74,7 +80,7 @@ function ShoppingCart() {
                   {' '}
                   {item.price}
                 </p>
-                <button>
+                <button onClick={ () => deleteItem(item.id) }>
                   X
                 </button>
               </li>
