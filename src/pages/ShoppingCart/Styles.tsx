@@ -89,6 +89,10 @@ export const CartInfo = styled.div`
         }
       }
 
+      .minus, .plus {
+        cursor: pointer;
+      }
+
       p {
         width: 50%;
         font-size: 1rem;

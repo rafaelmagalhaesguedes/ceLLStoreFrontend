@@ -64,12 +64,14 @@ function ShoppingCart() {
                 <h3>{item.title}</h3>
                 <div>
                   <FontAwesomeIcon
+                    className="minus"
                     onClick={ () => decreaseQuantity(item.id) }
                     icon={ faMinusCircle }
                     size="lg"
                   />
                   <span>{item.quantity}</span>
                   <FontAwesomeIcon
+                    className="plus"
                     onClick={ () => increaseQuantity(item.id) }
                     icon={ faPlusCircle }
                     size="lg"
