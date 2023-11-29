@@ -1,13 +1,8 @@
-// CartCheckoutComponent.tsx
 import { useCart } from '../../hooks/useCart';
 import { ProductType } from '../../types/types';
 import { CartCheckoutContainer, Subtotal, ButtonFinish } from './Styles';
 
-type CartCheckoutProps = {
-  cart: ProductType[];
-};
-
-function CartCheckout({ cart }: CartCheckoutProps) {
+function CartCheckout({ cart } : { cart: ProductType[] }) {
   const { cartTotalFormatted } = useCart();
 
   return (
