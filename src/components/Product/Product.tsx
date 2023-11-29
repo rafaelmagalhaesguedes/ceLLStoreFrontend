@@ -21,13 +21,15 @@ function Product() {
   const loadMore = () => setItemsToShow((prev) => prev + 12);
 
   const addToCart = (item: ProductType) => {
-    let existingCart = cart;
-    if (!Array.isArray(existingCart)) {
-      existingCart = [];
+    const existingItem = cart.find((cartItem) => cartItem.id === item.id);
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      item.quantity = 1;
+      cart.push(item);
     }
-    const newCart = [...existingCart, item];
-    localStorage.setItem('cart', JSON.stringify(newCart));
-    setCart(newCart); // Update cart in context
+    localStorage.setItem('cart', JSON.stringify(cart));
+    setCart([...cart]);
   };
 
   return (

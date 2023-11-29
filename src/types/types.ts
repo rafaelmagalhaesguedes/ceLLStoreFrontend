@@ -5,6 +5,7 @@ export type ProductType = {
   thumbnail: string;
   condition: string;
   available_quantity: number;
+  quantity: number;
   seller: {
     nickname: string;
   };
