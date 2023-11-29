@@ -1,10 +1,12 @@
-import { useEffect, useState, useCallback } from 'react';
+// useFetchData.ts
+import { useCallback, useState } from 'react';
 import { ProductType } from '../types/types';
 
-export function useFetch() {
-  const [product, setProduct] = useState<ProductType[]>([]);
+function useFetchData(
+  setDataProduct: (products: ProductType[]) => void,
+  categorie: string,
+) {
   const [loading, setLoading] = useState<boolean>(false);
-  const [categorie, setCategorie] = useState<string>('MLB1051');
 
   const fetchData = useCallback(async () => {
     try {
@@ -14,17 +16,15 @@ export function useFetch() {
         throw new Error('Error fetching data!');
       }
       const data = await response.json();
-      setProduct(data.results);
+      setDataProduct(data.results);
     } catch (error) {
       console.error(error);
     } finally {
       setLoading(false);
     }
-  }, [categorie]);
+  }, [categorie, setDataProduct]);
 
-  useEffect(() => {
-    fetchData();
-  }, [fetchData, categorie]);
-
-  return { product, setProduct, setCategorie, loading, setLoading };
+  return { fetchData, loading };
 }
+
+export default useFetchData;
