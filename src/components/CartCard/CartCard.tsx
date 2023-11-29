@@ -1,13 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle, faMinusCircle, faReply } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
 import { ProductType } from '../../types/types';
-import { useCart } from '../../hooks/useCart';
 import { Cart, CartInfo } from './Styles';
+import ProductContext from '../../context/ProductContext';
 
-function CartCard({ cart } : { cart: ProductType[] }) {
+function CartCard() {
   const navigate = useNavigate();
-  const { increaseQuantity, decreaseQuantity, deleteItem } = useCart();
+  const {
+    cart, increaseQuantity, decreaseQuantity, deleteItem } = useContext(ProductContext);
 
   return (
     <Cart>
