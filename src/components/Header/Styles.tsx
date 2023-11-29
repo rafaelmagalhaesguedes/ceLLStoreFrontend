@@ -20,3 +20,18 @@ export const HeaderWrapper = styled.div`
 
 export const Logo = styled.div`
 `;
+
+export const CartIconWrapper = styled.div`
+  position: relative;
+`;
+
+export const CartCount = styled.span`
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 14px;
+`;
