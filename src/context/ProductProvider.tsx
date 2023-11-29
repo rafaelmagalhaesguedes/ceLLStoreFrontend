@@ -14,6 +14,7 @@ function ProductProvider({ children }: ProductProviderProps) {
   const [dataProduct, setDataProduct] = useState<ProductType[]>([]);
   const [product, setProduct] = useState<ProductType[]>([]);
   const [categorie, setCategorie] = useState<string>('MLB1051');
+  const [cart, setCart] = useState<ProductType[]>([]);
 
   const { fetchData, loading } = useFetchData(setDataProduct, categorie);
   const { filterByString } = useFilterByString(dataProduct, setProduct);
@@ -21,6 +22,11 @@ function ProductProvider({ children }: ProductProviderProps) {
     filterCheapest,
     filterMostExpensive,
     filterFreeShipping } = useFilter(dataProduct, setProduct);
+
+  useEffect(() => {
+    const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
+    setCart(existingCart);
+  }, []);
 
   useEffect(() => {
     fetchData();
@@ -31,6 +37,8 @@ function ProductProvider({ children }: ProductProviderProps) {
   }, [dataProduct]);
 
   const contextValue = {
+    cart,
+    setCart,
     dataProduct,
     product,
     loading,

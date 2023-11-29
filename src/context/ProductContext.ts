@@ -2,6 +2,8 @@ import { createContext } from 'react';
 import { ProductType } from '../types/types';
 
 export type ProductContextType = {
+  cart: ProductType[];
+  setCart: (cart: ProductType[]) => void;
   product: ProductType[];
   dataProduct: ProductType[];
   setProduct: (product: ProductType[]) => void;
