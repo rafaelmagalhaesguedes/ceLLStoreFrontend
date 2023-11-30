@@ -10,10 +10,18 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: Poppins , sans-serif;
-    background-color: #F5F5F5;
+    background: #F5F5F5;
   }
   
   a {
     text-decoration: none;
+    color: #000;
+  }
+
+  a:visited {
+    color: #000;
+  }
+  .empty {
+    color: #ccc; /* or any other color that you want for empty stars */
   }
 `;
