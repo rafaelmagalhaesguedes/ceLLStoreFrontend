@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle, faMinusCircle, faReply } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { ProductType } from '../../types/types';
 import { Cart, CartInfo } from './Styles';
@@ -23,8 +23,10 @@ function CartCard() {
         <ul>
           {cart.map((item: ProductType) => (
             <li key={ item.id }>
-              <img src={ item.thumbnail } alt={ item.title } />
-              <h3>{item.title}</h3>
+              <Link to={ `/product-details/${item.id}` }>
+                <img src={ item.thumbnail } alt={ item.title } />
+                <h3>{item.title}</h3>
+              </Link>
               <div>
                 <FontAwesomeIcon
                   className="minus"
