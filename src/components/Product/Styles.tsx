@@ -37,6 +37,11 @@ export const ProductCard = styled.div`
     margin: 1rem 0;
   }
 
+  img {
+    width: 100%;
+    height: auto;
+  }
+
   h3 {
     font-size: 0.8rem;
   }
