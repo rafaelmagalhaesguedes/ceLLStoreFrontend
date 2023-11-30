@@ -30,7 +30,6 @@ export const ProductCard = styled.div`
   width: 80%;
   border-radius: 5px;
   padding: 20px;
-  cursor: pointer;
 `;
 
 export const Product = styled.div`
@@ -90,7 +89,6 @@ export const Attributes = styled.ul`
   width: 80%;
   border-radius: 5px;
   padding: 0.5rem 1.5rem;
-  cursor: pointer;
 
   li {
     color: #222;
