@@ -13,7 +13,7 @@ type ProductProviderProps = {
 
 function ProductProvider({ children }: ProductProviderProps) {
   const [dataProduct, setDataProduct] = useState<ProductType[]>([]);
-  const [product, setProduct] = useState<ProductType[]>([]);
+  const [product, setProduct] = useState<ProductType[]>(dataProduct);
   const [categorie, setCategorie] = useState<string>('MLB1051');
   const [cart, setCart] = useState<ProductType[]>([]);
 
