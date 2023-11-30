@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ProductType } from '../../types/types';
 import ProductContext from '../../context/ProductContext';
 import Loading from '../Loading/Loading';
@@ -28,7 +29,9 @@ function Product() {
             {product && product.slice(0, itemsToShow).map((item: ProductType) => (
               <ProductCard key={ item.id }>
                 <img src={ item.thumbnail } alt={ item.title } />
-                <h3>{item.title}</h3>
+                <Link to={ `/product-details/${item.id}` }>
+                  <h3>{item.title}</h3>
+                </Link>
                 <div>
                   <p>
                     R$
