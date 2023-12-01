@@ -1,9 +1,9 @@
 export const translateCondition = (condition: string) => {
   switch (condition) {
     case 'new':
-      return 'Produto novo';
+      return 'Novo';
     case 'used':
-      return 'Produto usado';
+      return 'Usado';
     default:
       return condition;
   }
