@@ -1,21 +1,17 @@
-import { NavTop, NavTopContainer } from './Styles';
+import { NavBottomContainer, NavTop, NavTopContainer, TitleNavTop } from './Styles';
 
 function NavBarTop() {
   return (
     <NavTopContainer>
       <NavTop>
-        <ul>
+        <TitleNavTop>A melhor loja do Brasil!</TitleNavTop>
+        <NavBottomContainer>
           <li>
-            <a href="/">A melhor loja do Brasil!</a>
-          </li>
-        </ul>
-
-        <ul>
-          <li>
+            <a href="/">Home</a>
+            <a href="/">Carrinho</a>
             <a href="/">Login</a>
-            <a href="/">Cadastrar</a>
           </li>
-        </ul>
+        </NavBottomContainer>
       </NavTop>
     </NavTopContainer>
   );
