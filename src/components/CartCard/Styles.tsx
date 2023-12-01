@@ -55,7 +55,7 @@ export const CartInfo = styled.div`
 
       img {
         border-radius: 5px;
-        width: 100%;
+        width: 120px;
       }
 
       h3 {
