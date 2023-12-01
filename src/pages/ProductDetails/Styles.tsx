@@ -63,8 +63,10 @@ export const Title = styled.h1`
 `;
 
 export const Image = styled.img`
-  width: 300px;
+  width: 200px;
   height: auto;
+  object-fit: cover;
+  filter: brightness(90%) contrast(110%);
 `;
 
 export const Details = styled.div`
