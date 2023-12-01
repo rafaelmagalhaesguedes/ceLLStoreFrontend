@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const ProductContainer = styled.div`
@@ -28,23 +29,48 @@ export const ProductCard = styled.div`
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   justify-content: space-between;
+`;
 
-  div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 1rem 0;
-  }
+export const Favorite = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.2rem;
+`;
 
-  img {
-    width: 100%;
-    height: auto;
-  }
+export const Condition = styled.div`
+  font-size: 0.7rem;
+  color: #f80;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+`;
+
+export const ImageCard = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
+export const TitleCard = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 
   h3 {
     font-size: 0.8rem;
+    color: #000;
   }
+`;
+
+export const PriceCard = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 1rem 0;
 
   span {
     font-size: 0.7rem;
@@ -57,6 +83,11 @@ export const ProductCard = styled.div`
     color: green;
     font-weight: 600;
   }
+`;
+
+export const Image = styled.img`
+  width: 120px;
+  height: auto;
 `;
 
 export const ButtonCart = styled.button`

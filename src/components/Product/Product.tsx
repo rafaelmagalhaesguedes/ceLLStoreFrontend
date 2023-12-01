@@ -1,5 +1,4 @@
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { ProductType } from '../../types/types';
 import ProductContext from '../../context/ProductContext';
 import Loading from '../Loading/Loading';
@@ -11,7 +10,15 @@ import {
   LoadMore,
   ButtonLoadMore,
   ProductNotFound,
+  Image,
+  Favorite,
+  TitleCard,
+  ImageCard,
+  PriceCard,
+  Condition,
 } from './Styles';
+import { translateCondition } from '../../helpers/translateCondition';
+import FavoriteButton from '../FavoriteButton/FavoriteButton';
 
 function Product() {
   const { product, loading, addToCart } = useContext(ProductContext);
@@ -28,11 +35,17 @@ function Product() {
           <ProductWrapper>
             {product && product.slice(0, itemsToShow).map((item: ProductType) => (
               <ProductCard key={ item.id }>
-                <img src={ item.thumbnail } alt={ item.title } />
-                <Link to={ `/product-details/${item.id}` }>
+                <Favorite>
+                  <Condition>{translateCondition(item.condition)}</Condition>
+                  <FavoriteButton item={ item } />
+                </Favorite>
+                <ImageCard to={ `/product-details/${item.id}` }>
+                  <Image src={ item.thumbnail } alt={ item.title } />
+                </ImageCard>
+                <TitleCard to={ `/product-details/${item.id}` }>
                   <h3>{item.title}</h3>
-                </Link>
-                <div>
+                </TitleCard>
+                <PriceCard>
                   <p>
                     R$
                     {' '}
@@ -41,7 +54,7 @@ function Product() {
                   <span>
                     {item.shipping.free_shipping ? 'Frete Grátis' : ''}
                   </span>
-                </div>
+                </PriceCard>
                 <ButtonCart
                   type="button"
                   onClick={ () => addToCart(item) }
