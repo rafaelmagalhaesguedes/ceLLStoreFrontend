@@ -7,6 +7,10 @@ export const ProductContainer = styled.div`
   width: 80%;
   heigth: auto;
   margin-top: 1rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const ProductWrapper = styled.div`
@@ -29,6 +33,10 @@ export const ProductCard = styled.div`
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const Favorite = styled.div`
