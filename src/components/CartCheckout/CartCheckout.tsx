@@ -30,6 +30,15 @@ function CartCheckout() {
               .toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
 
           </p>
+          <p>
+            Em até 12x de
+            {' '}
+            R$
+            {' '}
+            {((item.price * item.quantity) / 12).toFixed(2)}
+            {' '}
+            sem juros
+          </p>
         </div>
       ))}
       <Subtotal>

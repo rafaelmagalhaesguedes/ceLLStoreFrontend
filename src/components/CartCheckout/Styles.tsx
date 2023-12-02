@@ -30,6 +30,10 @@ export const CartCheckoutContainer = styled.div`
     padding: 0.5rem 0;
     color: #444;
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const Subtotal = styled.div`
