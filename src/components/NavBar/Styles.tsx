@@ -9,11 +9,11 @@ export const NavContainer = styled.div`
 `;
 
 export const Nav = styled.nav`
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 2.1rem;
   color: #fff;
 
   ul {

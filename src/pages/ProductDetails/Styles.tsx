@@ -16,7 +16,7 @@ export const ButtonBack = styled.button`
   cursor: pointer;
   font-size: 1rem;
   align-self: flex-start;
-  margin-left: 150px;
+  margin-left: 40px;
   margin-top: 20px;
 
   &:hover {
@@ -28,9 +28,9 @@ export const ProductCard = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
-  width: 80%;
+  width: 100%;
   border-radius: 5px;
-  padding: 20px;
+  padding: 1rem 2.5rem;
 `;
 
 export const Product = styled.div`

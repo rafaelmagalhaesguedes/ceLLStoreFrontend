@@ -13,8 +13,8 @@ export const NavTop = styled.nav`
   justify-content: space-between;
   align-items: center;
   color: #fff;
-  padding: 0.3rem 1.5rem;
-  width: 80%;
+  padding: 0.3rem 2rem;
+  width: 100%;
 `;
 
 export const TitleNavTop = styled.h1`

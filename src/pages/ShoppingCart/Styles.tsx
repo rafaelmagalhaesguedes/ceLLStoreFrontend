@@ -9,9 +9,9 @@ export const CartContainer = styled.div`
 export const CartWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 1.5rem;
+  padding: 2.5rem;
   justify-content: space-between;
-  width: 80%;
+  width: 100%;
   gap: 2rem;
   margin: 0 auto;
 `;

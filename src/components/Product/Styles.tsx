@@ -4,19 +4,15 @@ import styled from 'styled-components';
 export const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
   heigth: auto;
   margin-top: 1rem;
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
 `;
 
 export const ProductWrapper = styled.div`
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-content: center;
   width: 100%;
   heigth: auto;
@@ -33,9 +29,22 @@ export const ProductCard = styled.div`
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   justify-content: space-between;
+  transition: all 0.4s ease-in-out;
 
-  @media (max-width: 768px) {
+  @media (max-width: 479px) {
     width: 100%;
+  }
+
+  @media (min-width: 480px) and (max-width: 768px) {
+    width: 40%;
+  }
+
+  @media (min-width: 769px) and (max-width: 959px) {
+    width: 25%;
+  }
+
+  @media (min-width: 1025px) and (max-width: 1200px) {
+    width: 20%;
   }
 `;
 

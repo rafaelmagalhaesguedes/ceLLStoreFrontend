@@ -1,10 +1,18 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle, faMinusCircle, faReply } from '@fortawesome/free-solid-svg-icons';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { ProductType } from '../../types/types';
-import { Cart, CartInfo } from './Styles';
 import ProductContext from '../../context/ProductContext';
+import {
+  ButtonBack,
+  ButtonDelete,
+  Cart,
+  CartBody,
+  CartImage,
+  CartInfo,
+  CartItem,
+  CartItemInfo, CartPrice, CartQuantity, CartSubTitle, TitleCart } from './Styles';
 
 function CartCard() {
   const navigate = useNavigate();
@@ -13,21 +21,21 @@ function CartCard() {
 
   return (
     <Cart>
-      <button type="button" className="button" onClick={ () => navigate('/') }>
-        <FontAwesomeIcon icon={ faReply } size="1x" />
-        {' '}
-        Continuar comprando
-      </button>
       <CartInfo>
-        <h1>Carrinho de compras</h1>
-        <ul>
+        <ButtonBack type="button" onClick={ () => navigate('/') }>
+          <FontAwesomeIcon icon={ faReply } size="1x" />
+          {' '}
+          Continuar comprando
+        </ButtonBack>
+        <TitleCart>Carrinho de compras</TitleCart>
+        <CartBody>
           {cart.map((item: ProductType) => (
-            <li key={ item.id }>
-              <Link to={ `/product-details/${item.id}` }>
-                <img src={ item.thumbnail } alt={ item.title } />
-                <h3>{item.title}</h3>
-              </Link>
-              <div>
+            <CartItem key={ item.id }>
+              <CartItemInfo to={ `/product-details/${item.id}` }>
+                <CartImage src={ item.thumbnail } alt={ item.title } />
+                <CartSubTitle>{item.title}</CartSubTitle>
+              </CartItemInfo>
+              <CartQuantity>
                 <FontAwesomeIcon
                   className="minus"
                   onClick={ () => decreaseQuantity(item.id) }
@@ -41,18 +49,18 @@ function CartCard() {
                   icon={ faPlusCircle }
                   size="lg"
                 />
-              </div>
-              <p>
+              </CartQuantity>
+              <CartPrice>
                 R$
                 {' '}
                 {item.price}
-              </p>
-              <button onClick={ () => deleteItem(item.id) }>
+              </CartPrice>
+              <ButtonDelete onClick={ () => deleteItem(item.id) }>
                 X
-              </button>
-            </li>
+              </ButtonDelete>
+            </CartItem>
           ))}
-        </ul>
+        </CartBody>
         {cart.length === 0 && <p>Não há produtos no carrinho</p>}
       </CartInfo>
     </Cart>

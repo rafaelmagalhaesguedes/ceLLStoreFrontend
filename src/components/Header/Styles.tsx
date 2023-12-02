@@ -13,8 +13,8 @@ export const HeaderContainer = styled.header`
 export const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 80%;
-  padding: 0 1rem;
+  width: 100%;
+  padding: 0 1.5rem;
   align-items: center;
 `;
 
