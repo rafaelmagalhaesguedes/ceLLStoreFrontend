@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const CartCardContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 export const Cart = styled.div`
@@ -13,6 +14,10 @@ export const Cart = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 1.5rem;
   background-color: #fff;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const ButtonBack = styled.button`
@@ -41,6 +46,10 @@ export const TitleCart = styled.h1`
   font-size: 2rem;
   margin-bottom: 16px;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const CartBody = styled.div`
@@ -60,12 +69,19 @@ export const CartItem = styled.li`
   padding: 30px 0;
   gap: 2rem;
   width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: center;
+  }
 `;
 
 export const CartItemInfo = styled(Link)`
   display: flex;
   flex-direction: column;
   width: 100%;
+  align-items: center;
 `;
 
 export const CartImage = styled.img`
@@ -76,7 +92,7 @@ export const CartImage = styled.img`
 export const CartSubTitle = styled.h3`
   width: 100%;
   font-size: 1rem;
-  text-align: left;
+  text-align: center;
   color: #444;
 `;
 
@@ -102,6 +118,24 @@ export const CartPrice = styled.p`
   font-weight: bold;
 `;
 
+export const ButtonDeleteMobile = styled.button`
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  color: #000;
+  cursor: pointer;
+  font-size: 1rem;
+  align-self: flex-end;
+
+  &:hover {
+    background-color: #bbb;
+  }
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+`;
+
 export const ButtonDelete = styled.button`
   background-color: transparent;
   border: none;
@@ -116,5 +150,9 @@ export const ButtonDelete = styled.button`
 
   &:hover {
     background-color: #bbb;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 `;

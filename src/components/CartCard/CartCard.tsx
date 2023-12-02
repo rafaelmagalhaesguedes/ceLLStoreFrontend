@@ -7,6 +7,7 @@ import ProductContext from '../../context/ProductContext';
 import {
   ButtonBack,
   ButtonDelete,
+  ButtonDeleteMobile,
   Cart,
   CartBody,
   CartImage,
@@ -31,6 +32,10 @@ function CartCard() {
         <CartBody>
           {cart.map((item: ProductType) => (
             <CartItem key={ item.id }>
+
+              <ButtonDeleteMobile onClick={ () => deleteItem(item.id) }>
+                X
+              </ButtonDeleteMobile>
               <CartItemInfo to={ `/product-details/${item.id}` }>
                 <CartImage src={ item.thumbnail } alt={ item.title } />
                 <CartSubTitle>{item.title}</CartSubTitle>
