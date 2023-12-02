@@ -18,6 +18,11 @@ export type ProductContextType = {
   filterMostExpensive: () => void;
   filterCheapest: () => void;
   loading: boolean;
+  isFavorited: boolean;
+  addFavorite: (itemFavorite: ProductType) => void;
+  favorites: ProductType[];
+  setFavorites: (favorites: ProductType[]) => void;
+  getFavorites: () => void;
 };
 
 const ProductContext = createContext({} as ProductContextType);

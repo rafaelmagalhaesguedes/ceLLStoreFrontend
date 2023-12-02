@@ -4,15 +4,11 @@ import noFavorited from '../../assets/icons/whiteHeartIcon.svg';
 import { ProductType } from '../../types/types';
 import useFavorites from '../../hooks/useFavorites';
 
-type FavoriteButtonProps = {
-  item: ProductType;
-};
-
-function FavoriteButton({ item } : FavoriteButtonProps) {
-  const { isFavorited, handleFavoriteClick } = useFavorites(item);
+function FavoriteButton({ item } : { item: ProductType }) {
+  const { addFavorite, isFavorited } = useFavorites(item);
 
   return (
-    <FavButton data-testid="favorite-btn" onClick={ handleFavoriteClick }>
+    <FavButton data-testid="favorite-btn" onClick={ addFavorite }>
       <img
         src={ isFavorited ? favorited : noFavorited }
         alt={ isFavorited ? 'favorited' : 'noFavorited' }

@@ -1,33 +1,34 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { ProductType } from '../types/types';
+import ProductContext from '../context/ProductContext';
 
-const useFavorites = (item: ProductType) => {
+const useFavorites = (item: any) => {
   const [isFavorited, setIsFavorited] = useState(false);
+  const { setFavorites } = useContext(ProductContext);
 
   useEffect(() => {
-    const favoriteRecipes = JSON.parse(localStorage.getItem('favorites') || '[]');
-    const isRecipeFavorited = favoriteRecipes
-      .some((favRecipe: any) => favRecipe.id === item.id);
-    setIsFavorited(isRecipeFavorited);
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    setIsFavorited(favorites.some((favorite: ProductType) => favorite.id === item.id));
   }, [item]);
 
-  const handleFavoriteClick = () => {
-    const favoriteRecipes = JSON.parse(localStorage.getItem('favorites') || '[]');
+  const addFavorite = () => {
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
 
-    const index = favoriteRecipes
-      .findIndex((favRecipe: any) => favRecipe.id === item.id);
+    const index = favorites
+      .findIndex((favorite: ProductType) => favorite.id === item.id);
 
     if (index !== -1) {
-      favoriteRecipes.splice(index, 1);
+      favorites.splice(index, 1);
       setIsFavorited(false);
     } else {
-      favoriteRecipes.push(item);
+      favorites.push(item);
       setIsFavorited(true);
     }
-    localStorage.setItem('favorites', JSON.stringify(favoriteRecipes));
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    setFavorites(favorites);
   };
 
-  return { isFavorited, handleFavoriteClick };
+  return { isFavorited, addFavorite };
 };
 
 export default useFavorites;

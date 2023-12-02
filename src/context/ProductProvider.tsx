@@ -6,6 +6,7 @@ import useFilter from '../hooks/useFilter';
 import { useFilterByString } from '../hooks/useFilterByString';
 import useFetchData from '../hooks/useFetchData';
 import { useCart } from '../hooks/useCart';
+import useFavorites from '../hooks/useFavorites';
 
 type ProductProviderProps = {
   children: ReactNode;
@@ -13,9 +14,11 @@ type ProductProviderProps = {
 
 function ProductProvider({ children }: ProductProviderProps) {
   const [dataProduct, setDataProduct] = useState<ProductType[]>([]);
-  const [product, setProduct] = useState<ProductType[]>(dataProduct);
-  const [categorie, setCategorie] = useState<string>('MLB1051');
+  const [product, setProduct] = useState<ProductType[]>([]);
+  const [categorie, setCategorie] = useState<string>('MLB1051'); // default category is 'MLB1051' (Smartphones)
   const [cart, setCart] = useState<ProductType[]>([]);
+  const getFav = JSON.parse(localStorage.getItem('favorites') || '[]');
+  const [favorites, setFavorites] = useState<ProductType[]>(getFav);
 
   const { fetchData, loading } = useFetchData(setDataProduct, categorie);
   const { filterByString } = useFilterByString(dataProduct, setProduct);
@@ -28,9 +31,15 @@ function ProductProvider({ children }: ProductProviderProps) {
     increaseQuantity,
     decreaseQuantity, deleteItem, cartTotalFormatted } = useCart(cart, setCart);
 
+  const { addFavorite, isFavorited } = useFavorites(favorites);
+
+  const getFavorites = () => {
+    setProduct(getFav);
+  };
+
   useEffect(() => {
-    const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
-    setCart(existingCart);
+    const getCart = JSON.parse(localStorage.getItem('cart') || '[]');
+    setCart(getCart);
   }, []);
 
   useEffect(() => {
@@ -58,6 +67,11 @@ function ProductProvider({ children }: ProductProviderProps) {
     filterCheapest,
     filterMostExpensive,
     filterFreeShipping,
+    favorites,
+    isFavorited,
+    addFavorite,
+    setFavorites,
+    getFavorites,
   };
 
   return (
