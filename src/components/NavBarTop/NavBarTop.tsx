@@ -8,8 +8,8 @@ function NavBarTop() {
         <NavBottomContainer>
           <li>
             <a href="/">Home</a>
-            <a href="/">Carrinho</a>
-            <a href="/">Login</a>
+            <a href="/shopping-cart">Carrinho</a>
+            <a href="/login">Login</a>
           </li>
         </NavBottomContainer>
       </NavTop>
