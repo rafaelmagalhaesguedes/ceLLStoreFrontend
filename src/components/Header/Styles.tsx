@@ -16,6 +16,11 @@ export const HeaderWrapper = styled.div`
   width: 100%;
   padding: 0 1.5rem;
   align-items: center;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    padding: 0 0.5rem;
+  }
 `;
 
 export const Logo = styled.div`
@@ -26,6 +31,10 @@ export const Logo = styled.div`
   
   a:visited {
     color: inherit;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
