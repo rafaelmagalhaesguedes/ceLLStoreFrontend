@@ -41,6 +41,11 @@ export const Nav = styled.nav`
     &:hover {
       color: #f80;
     }
+
+    &:active {
+      color: #fff;
+      background-color: #f80;
+    }
   }
 `;
 
@@ -49,7 +54,8 @@ export const Submenu = styled.ul`
   position: absolute;
   width: 150px;
   height: auto;
-  margin-left: -5rem;
+  margin-left: -4rem;
+  margin-top: 1.3rem;
   background-color: #4A3F35;
   list-style: none;
   padding: 1rem;
@@ -66,6 +72,9 @@ export const Submenu = styled.ul`
 `;
 
 export const MenuItem = styled.div`
+  display: flex;
+  gap: 2rem;
+
   span {
     cursor: pointer;
   }
