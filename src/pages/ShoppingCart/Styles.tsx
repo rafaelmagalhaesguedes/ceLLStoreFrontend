@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const CartContainer = styled.div`
   width: 100%;
-  background-color: #fff;
+  background-color: #eee;
   height: 100%;
 `;
 
@@ -14,4 +14,11 @@ export const CartWrapper = styled.div`
   width: 80%;
   gap: 2rem;
   margin: 0 auto;
+`;
+
+export const TitleCard = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: flex-start;
 `;
