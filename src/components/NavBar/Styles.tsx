@@ -1,81 +1,123 @@
+/** *****************************************
+*
+*    CSS Styles Component Navbar Responsive
+*
+********************************************* */
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const NavContainer = styled.div`
-  display: flex;
-  background-color: #4A3F35;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Nav = styled.nav`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 2.1rem;
-  color: #fff;
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-  }
-
-  li {
-    gap: 2rem;
-    display: flex;
-  }
-
-  button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin: 0 0.5rem;
-    letter-spacing: 0.5px;
-
-    &:hover {
-      color: #f80;
-    }
-
-    &:active {
-      color: #fff;
-      background-color: #f80;
-    }
-  }
-`;
-
-export const Submenu = styled.ul`
+export const NavbarResponsive = styled.nav`
+  color: white;
   display: none;
-  position: absolute;
-  width: 150px;
-  height: auto;
-  margin-left: -4rem;
-  margin-top: 1.3rem;
-  background-color: #4A3F35;
-  list-style: none;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.9);
-
-  button {
-    margin: 0.5rem 0;
-    color: #fff;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
+  
+  @media only screen and ( max-width : 768px ) {
+    color: white;
+    display: block;
   }
 `;
 
-export const MenuItem = styled.div`
+export const NavbarContainer = styled.div`
   display: flex;
-  gap: 2rem;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 100%;
+`;
 
-  span {
-    cursor: pointer;
+export const Bar = styled.div`
+  background-color: white;
+  height: 4px;
+  margin: 3px 0;
+  transition: 0.4s;
+  width: 25px;
+`;
+
+export const MenuToggleButton = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  z-index: 1000;
+
+  @media only screen and ( max-width : 768px ) {
+    padding: 0;
+  }
+
+  @media only screen and ( min-width : 769px ) and ( max - width : 1366px ) {
+    padding: 0;
+  }
+
+  &.active ${Bar}:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  &.active ${Bar}:nth-child(2) {
+    opacity: 0;
+  }
+
+  &.active ${Bar}:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  &.active {
+    ${Bar}:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    ${Bar}:nth-child(2) {
+      opacity: 0;
+    }
+
+    ${Bar}:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+  }
+`;
+
+export const NavbarLinks = styled.div`
+  display: none;
+  background-color: #3f3533;
+  color: white;
+  flex-direction: column;
+  width: 70%;
+  height: 100vh;
+  justify-content: center;
+  gap: 3rem;
+  padding: 0 1rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 999;
+
+  &.active {
+    display: flex;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    background-color: #f80;
+    color: #000;
+    font-size: 1rem;
+    border: none;
+    font-weight: 700;
+  }
+`;
+
+export const NavLinked = styled(Link)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  font-size: 1.3rem;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0 10px;
+  font-weight: 300;
+  letter-spacing: 1px;
+
+  @media only screen and ( max-width : 768px ) {
+    font-size: 1rem;
   }
 `;

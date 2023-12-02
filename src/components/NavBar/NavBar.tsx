@@ -1,74 +1,69 @@
-/* eslint-disable react/jsx-max-depth */
 import { useContext, useState } from 'react';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { categories } from '../../helpers/categories';
-import { MenuItem, Nav, NavContainer, Submenu } from './Styles';
+import {
+  NavbarResponsive,
+  NavbarContainer,
+  MenuToggleButton,
+  Bar,
+  NavbarLinks,
+  NavLinked,
+} from './Styles';
 import ProductContext from '../../context/ProductContext';
+import { categories } from '../../helpers/categories';
 
-function NavBar() {
-  const [isSubmenuOpen, setSubmenuOpen] = useState(false);
+function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const { favorites, setCategorie, getFavorites } = useContext(ProductContext);
 
-  const {
-    setCategorie,
-    filterFreeShipping,
-    filterMostExpensive,
-    filterCheapest,
-    getFavorites,
-    favorites,
-  } = useContext(ProductContext);
-
-  const handleMouseEnter = () => {
-    setSubmenuOpen(true);
+  const handleToggleMenu = () => {
+    setIsOpen(!isOpen);
   };
 
-  const handleMouseLeave = () => {
-    setSubmenuOpen(false);
+  const closeMenu = () => {
+    setIsOpen(false);
   };
 
   return (
-    <NavContainer>
-      <Nav>
-        <MenuItem>
+    <NavbarResponsive>
+      <NavbarContainer>
+        <MenuToggleButton
+          className={ isOpen ? 'active' : '' }
+          onClick={ handleToggleMenu }
+        >
+          <Bar />
+          <Bar />
+          <Bar />
+        </MenuToggleButton>
+
+        <NavbarLinks className={ isOpen ? 'active' : '' }>
           {categories.map((category) => (
-            <button key={ category.id } onClick={ () => setCategorie(category.id) }>
-              {category.name}
-            </button>
+            <div key={ category.id }>
+              <NavLinked
+                to="/"
+                onClick={ () => {
+                  setCategorie(category.id);
+                  closeMenu();
+                } }
+              >
+                {category.name}
+              </NavLinked>
+            </div>
           ))}
-        </MenuItem>
-        <MenuItem>
-          <button onClick={ getFavorites }>
+          <button
+            onClick={ () => {
+              getFavorites();
+              closeMenu();
+            } }
+          >
             Meus favoritos
             {' '}
             (
             {favorites.length}
             )
           </button>
-          <MenuItem onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>
-            <span>
-              Filtrar
-              {' '}
-              <FontAwesomeIcon icon={ faChevronDown } />
-            </span>
-            {isSubmenuOpen && (
-              <Submenu>
-                <button onClick={ filterCheapest }>
-                  Menor Preço
-                </button>
-                <button onClick={ filterMostExpensive }>
-                  Maior Preço
-                </button>
-                <button onClick={ filterFreeShipping }>
-                  Frete Grátis
-                </button>
-              </Submenu>
-            )}
-          </MenuItem>
-        </MenuItem>
-
-      </Nav>
-    </NavContainer>
+        </NavbarLinks>
+      </NavbarContainer>
+    </NavbarResponsive>
   );
 }
 
-export default NavBar;
+export default Navbar;
