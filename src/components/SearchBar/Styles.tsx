@@ -6,7 +6,7 @@ export const SearchBarContainer = styled.div`
   align-items: center;
   border-radius: 0.5rem;
   border: 1px solid #999;
-  width: 40%;
+  width: 50%;
   padding: 0.1rem 0.5rem;
 
   input {
@@ -29,5 +29,10 @@ export const SearchBarContainer = styled.div`
     color: #fff;
     font-weight: bold;
     cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0.1rem 0.5rem;
   }
 `;
