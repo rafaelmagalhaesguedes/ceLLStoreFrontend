@@ -105,6 +105,10 @@ export const CartQuantity = styled.div`
   align-items: center;
   gap: 1rem;
 
+  .plus, .minus {
+    cursor: pointer;
+  }
+
   button {
     margin-top: 3px;
   }
@@ -143,7 +147,7 @@ export const ButtonDeleteMobile = styled.button`
 `;
 
 export const ButtonDelete = styled.button`
-display: block;
+  display: block;
   background-color: transparent;
   border: none;
   border-radius: 5px;
