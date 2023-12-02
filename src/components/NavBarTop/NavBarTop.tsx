@@ -4,13 +4,14 @@ function NavBarTop() {
   return (
     <NavTopContainer>
       <NavTop>
-        <TitleNavTop>A melhor loja do Brasil!</TitleNavTop>
+        <TitleNavTop>CELL STORE</TitleNavTop>
         <NavBottomContainer>
           <li>
-            <a href="/">Home</a>
-            <a href="/shopping-cart">Carrinho</a>
-            <a href="/login">Login</a>
+            <a className="home" href="/">Home</a>
+            <a className="cart" href="/shopping-cart">Carrinho</a>
+            <a className="login" href="/login">Login</a>
           </li>
+          <li className="brand-desc">A melhor loja do Brasil</li>
         </NavBottomContainer>
       </NavTop>
     </NavTopContainer>

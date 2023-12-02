@@ -15,11 +15,16 @@ export const NavTop = styled.nav`
   color: #fff;
   padding: 0.3rem 2rem;
   width: 100%;
+
+  @media (max-width: 768px) {
+    padding: 0.3rem 1rem;
+  }
 `;
 
 export const TitleNavTop = styled.h1`
   font-size: 0.8rem;
   font-weight: normal;
+  letter-spacing: 0.9px;
   margin: 0;
   padding: 0 0.6rem;
 `;
@@ -34,6 +39,8 @@ export const NavBottomContainer = styled.ul`
   li {
     gap: 1rem;
     display: flex;
+    font-size: 0.8rem;
+    font-weight: 300;
   }
 
   a {
@@ -42,5 +49,18 @@ export const NavBottomContainer = styled.ul`
     font-size: 0.8rem;
     font-weight: normal;
     margin: 0 0.5rem;
+  }
+
+  .brand-desc {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .home, .cart, .login {
+      display: none;
+    }
+    .brand-desc {
+      display: block;
+    }
   }
 `;
