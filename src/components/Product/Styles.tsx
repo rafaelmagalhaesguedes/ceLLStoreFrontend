@@ -7,6 +7,10 @@ export const ProductContainer = styled.div`
   width: 100%;
   heigth: auto;
   margin-top: 1rem;
+
+  @media (max-width: 768px) {
+    margin-top: 0;
+  }
 `;
 
 export const ProductWrapper = styled.div`
@@ -14,6 +18,7 @@ export const ProductWrapper = styled.div`
   flex-flow: row wrap;
   justify-content: space-evenly;
   align-content: center;
+  align-items: stretch;
   width: 100%;
   heigth: auto;
 `;
@@ -21,15 +26,15 @@ export const ProductWrapper = styled.div`
 export const ProductCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 15%;
   heigt: auto;
-  margin: 1.5rem;
+  margin: 1rem;
   padding: 1rem;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   justify-content: space-between;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
   @media (max-width: 479px) {
     width: 100%;
@@ -57,7 +62,7 @@ export const Favorite = styled.div`
 `;
 
 export const Condition = styled.div`
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: #f80;
   font-weight: 600;
   margin-bottom: 0.2rem;

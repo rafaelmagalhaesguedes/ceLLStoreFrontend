@@ -23,10 +23,10 @@ import FavoriteButton from '../FavoriteButton/FavoriteButton';
 function Product() {
   const { product, loading, addToCart } = useContext(ProductContext);
 
-  const [itemsToShow, setItemsToShow] = useState(12);
+  const [itemsToShow, setItemsToShow] = useState(18);
 
   // Load data when click on button load more
-  const loadMore = () => setItemsToShow((prev) => prev + 12);
+  const loadMore = () => setItemsToShow((prev) => prev + 18);
 
   return (
     <ProductContainer>
