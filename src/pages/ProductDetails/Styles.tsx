@@ -6,6 +6,7 @@ export const ProductDetailsContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #eee;
+  width: 100%;
 `;
 
 export const ButtonBack = styled.button`
@@ -22,6 +23,10 @@ export const ButtonBack = styled.button`
   &:hover {
     background-color: #bbb;
   }
+
+  @media (max-width: 768px) {
+    margin-left: 20px;
+  }
 `;
 
 export const ProductCard = styled.div`
@@ -31,6 +36,11 @@ export const ProductCard = styled.div`
   width: 100%;
   border-radius: 5px;
   padding: 1rem 2.5rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1rem;
+  }
 `;
 
 export const Product = styled.div`
@@ -51,6 +61,7 @@ export const Condition = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const TotalSold = styled.span`
@@ -61,6 +72,10 @@ export const TotalSold = styled.span`
 export const Title = styled.h1`
   font-size: 1.3rem;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
 `;
 
 export const Image = styled.img`
@@ -84,6 +99,10 @@ export const SubTitle = styled.h2`
   text-align: center;
   font-weight: bold;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
 `;
 
 export const Attributes = styled.ul`
@@ -103,6 +122,10 @@ export const Attributes = styled.ul`
     font-size: 0.8rem;
     font-weight: 300;
     color: #555;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 
@@ -141,4 +164,8 @@ export const ButtonCart = styled.button`
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
