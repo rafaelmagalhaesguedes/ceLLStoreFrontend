@@ -32,7 +32,6 @@ function CartCard() {
         <CartBody>
           {cart.map((item: ProductType) => (
             <CartItem key={ item.id }>
-
               <ButtonDeleteMobile onClick={ () => deleteItem(item.id) }>
                 X
               </ButtonDeleteMobile>

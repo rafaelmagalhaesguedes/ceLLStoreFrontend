@@ -116,9 +116,15 @@ export const CartPrice = styled.p`
   text-align: center;
   color: #f80;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    font-size: 1.5rem;
+  }
 `;
 
 export const ButtonDeleteMobile = styled.button`
+  display: none;
   background-color: transparent;
   border: none;
   border-radius: 5px;
@@ -131,12 +137,13 @@ export const ButtonDeleteMobile = styled.button`
     background-color: #bbb;
   }
 
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
     display: block;
   }
 `;
 
 export const ButtonDelete = styled.button`
+display: block;
   background-color: transparent;
   border: none;
   border-radius: 5px;
