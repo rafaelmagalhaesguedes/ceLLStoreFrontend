@@ -1,15 +1,15 @@
 import NavBar from '../../components/NavBar/NavBar';
 import Product from '../../components/Product/Product';
-import { Container } from './Styles';
+import { Container, Main } from './Styles';
 
 function Home() {
   return (
-    <>
+    <Container>
       <NavBar />
-      <Container>
+      <Main>
         <Product />
-      </Container>
-    </>
+      </Main>
+    </Container>
   );
 }
 
