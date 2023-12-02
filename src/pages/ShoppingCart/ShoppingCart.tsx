@@ -1,12 +1,14 @@
-import { CartContainer } from './Styles';
+import { CartContainer, CartWrapper } from './Styles';
 import CartCard from '../../components/CartCard/CartCard';
 import CartCheckout from '../../components/CartCheckout/CartCheckout';
 
 function ShoppingCart() {
   return (
     <CartContainer>
-      <CartCard />
-      <CartCheckout />
+      <CartWrapper>
+        <CartCard />
+        <CartCheckout />
+      </CartWrapper>
     </CartContainer>
   );
 }
