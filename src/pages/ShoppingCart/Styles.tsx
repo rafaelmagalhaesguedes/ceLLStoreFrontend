@@ -14,6 +14,11 @@ export const CartWrapper = styled.div`
   width: 100%;
   gap: 2rem;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1rem;
+  }
 `;
 
 export const TitleCard = styled.div`
