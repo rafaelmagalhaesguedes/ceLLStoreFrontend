@@ -50,6 +50,10 @@ function ProductProvider({ children }: ProductProviderProps) {
     setProduct(dataProduct);
   }, [dataProduct]);
 
+  useEffect(() => {
+    setCategorie(categorie);
+  }, [categorie]);
+
   const contextValue = {
     cart,
     setCart,
