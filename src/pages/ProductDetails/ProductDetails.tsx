@@ -22,6 +22,8 @@ import {
 } from './Styles';
 import { translateCondition } from '../../helpers/translateCondition';
 import Rating from '../../components/Rating/Rating';
+import FavoriteButton from '../../components/FavoriteButton/FavoriteButton';
+import { TitleCard } from '../ShoppingCart/Styles';
 
 function ProductDetails() {
   const { id } = useParams();
@@ -51,7 +53,10 @@ function ProductDetails() {
               </TotalSold>
               <Rating item={ el } />
             </Condition>
-            <Title>{el.title}</Title>
+            <TitleCard>
+              <Title>{el.title}</Title>
+              <FavoriteButton item={ el } />
+            </TitleCard>
             <Image src={ el.thumbnail } alt={ el.title } />
           </Product>
           <Details>
