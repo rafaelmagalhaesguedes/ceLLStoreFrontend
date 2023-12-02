@@ -1,5 +1,6 @@
 import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { RatingContainer } from './Styles';
 
 type RatingProps = {
   item: {
@@ -45,13 +46,16 @@ function Rating({ item } : RatingProps) {
   };
 
   return (
-    <div>
-      {(item.seller
-        .seller_reputation.transactions.ratings.positive * 5).toFixed(1)}
-      {' '}
-      {renderStars(item.seller
-        .seller_reputation.transactions.ratings.positive * 5)}
-    </div>
+    <RatingContainer>
+      <div className="rating">
+        {(item.seller
+          .seller_reputation.transactions.ratings.positive * 5).toFixed(1)}
+      </div>
+      <div className="stars">
+        {renderStars(item.seller
+          .seller_reputation.transactions.ratings.positive * 5)}
+      </div>
+    </RatingContainer>
   );
 }
 
