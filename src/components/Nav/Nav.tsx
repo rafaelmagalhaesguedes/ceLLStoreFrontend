@@ -50,7 +50,7 @@ function Nav() {
               Meus favoritos
               {' '}
               (
-              {favorites.length}
+              {favorites && favorites.length}
               )
             </button>
             <MenuItem onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>
