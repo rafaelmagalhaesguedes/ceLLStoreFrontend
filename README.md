@@ -1,5 +1,34 @@
-# App Cell Store
+# Cell Store
 
-Esse é um projeto criado com as principais tecnologias utilizadas no módulo de front-end da Trybe.
+Cell Store é um projeto de loja online, que utiliza a API do mercado livre para alimentar seu front. Possui uma interface responsiva e fluida para diversos tipos de dispositivos. Ele é construído com React, TypeScript e Styled Components.
 
 ### Link deploy: [Cell Store](https://ce-ll-store.vercel.app)
+
+# Instalação
+
+Primeiro, clone o repositório para sua máquina.
+
+  - git clone https://github.com/yourusername/cell-store.git
+  - cd cell-store
+
+Em seguida, instale as dependências:
+
+  - npm install
+
+# Uso
+
+Para iniciar o servidor de desenvolvimento, rode o comando abaixo:
+
+  - npm run dev
+
+Para criar uma versão de produção:
+  
+  - npm run build
+
+Para executar os testes:
+
+  - npm run test
+
+Para verificar a cobertua dos testes:
+
+  - npm run coverage

@@ -8,6 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint -c .eslintrc.json . --ext .js,.jsx,.ts,.tsx",
     "preview": "vite preview",
+    "test": "vitest",
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
