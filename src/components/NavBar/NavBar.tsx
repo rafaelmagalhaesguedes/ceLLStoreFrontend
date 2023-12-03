@@ -57,7 +57,7 @@ function Navbar() {
             Meus favoritos
             {' '}
             (
-            {favorites.length}
+            {favorites && favorites.length}
             )
           </button>
         </NavbarLinks>
