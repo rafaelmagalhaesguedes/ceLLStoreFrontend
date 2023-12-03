@@ -26,6 +26,7 @@ function Navbar() {
     <NavbarResponsive>
       <NavbarContainer>
         <MenuToggleButton
+          data-testid="menu-button"
           className={ isOpen ? 'active' : '' }
           onClick={ handleToggleMenu }
         >
@@ -34,7 +35,7 @@ function Navbar() {
           <Bar />
         </MenuToggleButton>
 
-        <NavbarLinks className={ isOpen ? 'active' : '' }>
+        <NavbarLinks data-testid="navigation" className={ isOpen ? 'active' : '' }>
           {categories.map((category) => (
             <div key={ category.id }>
               <NavLinked
@@ -49,6 +50,7 @@ function Navbar() {
             </div>
           ))}
           <button
+            data-testid="favorites-button"
             onClick={ () => {
               getFavorites();
               closeMenu();
