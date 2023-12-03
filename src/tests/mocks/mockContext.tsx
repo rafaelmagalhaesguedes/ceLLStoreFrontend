@@ -1,0 +1,25 @@
+import { vi } from 'vitest';
+
+export const mockContext = {
+  cart: [],
+  setCart: vi.fn(),
+  addToCart: vi.fn(),
+  increaseQuantity: vi.fn(),
+  decreaseQuantity: vi.fn(),
+  deleteItem: vi.fn(),
+  cartTotalFormatted: '',
+  product: [],
+  dataProduct: [],
+  setProduct: vi.fn(),
+  setCategorie: vi.fn(),
+  filterByString: vi.fn(),
+  filterFreeShipping: vi.fn(),
+  filterMostExpensive: vi.fn(),
+  filterCheapest: vi.fn(),
+  loading: false,
+  isFavorited: false,
+  addFavorite: vi.fn(),
+  favorites: [],
+  setFavorites: vi.fn(),
+  getFavorites: vi.fn(),
+};
