@@ -35,6 +35,7 @@ function SearchBar() {
         onKeyDown={ handleEnter }
       />
       <FontAwesomeIcon
+        data-testid="search-icon"
         onClick={ handleSearch }
         icon={ faSearch }
       />
