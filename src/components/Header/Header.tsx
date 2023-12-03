@@ -13,6 +13,8 @@ import Navbar from '../NavBar/NavBar';
 
 function Header() {
   const { cart } = useContext(ProductContext);
+  const carLength = cart && cart.length;
+
   return (
     <HeaderContainer>
       <HeaderWrapper>
@@ -24,9 +26,9 @@ function Header() {
         <Navbar />
         <SearchBar />
         <CartIconWrapper>
-          <Link to="/shopping-cart">
+          <Link data-testid="icon-cart" to="/shopping-cart">
             <FontAwesomeIcon icon={ faCartShopping } size="2x" />
-            <CartCount>{cart.length}</CartCount>
+            <CartCount>{carLength}</CartCount>
           </Link>
         </CartIconWrapper>
       </HeaderWrapper>
