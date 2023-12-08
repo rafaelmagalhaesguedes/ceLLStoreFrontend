@@ -1,18 +1,11 @@
 import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { RatingContainer } from './Styles';
+import { Seller } from '../../types/types';
 
 type RatingProps = {
   item: {
-    seller: {
-      seller_reputation: {
-        transactions: {
-          ratings: {
-            positive: number;
-          };
-        };
-      };
-    };
+    seller: Seller;
   };
 };
 
@@ -50,7 +43,7 @@ function Rating({ item } : RatingProps) {
 
   // If rating is undefined, return null or some default JSX
   if (rating === undefined) {
-    return null;
+    return 'Sem avaliações';
   }
 
   return (

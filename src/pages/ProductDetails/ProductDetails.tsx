@@ -47,7 +47,7 @@ function ProductDetails() {
               <TotalSold>
                 {translateCondition(el.condition)}
                 {' | +'}
-                {el.sold_quantity}
+                {el.sold_quantity ? el.sold_quantity : 0}
                 {' '}
                 vendidos
               </TotalSold>
