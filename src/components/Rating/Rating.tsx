@@ -45,15 +45,21 @@ function Rating({ item } : RatingProps) {
     return stars;
   };
 
+  // Check if the necessary objects exist before trying to access their properties
+  const rating = item?.seller?.seller_reputation?.transactions?.ratings?.positive;
+
+  // If rating is undefined, return null or some default JSX
+  if (rating === undefined) {
+    return null;
+  }
+
   return (
     <RatingContainer>
       <div className="rating">
-        {(item.seller
-          .seller_reputation.transactions.ratings.positive * 5).toFixed(1)}
+        {(rating * 5).toFixed(1)}
       </div>
       <div className="stars">
-        {renderStars(item.seller
-          .seller_reputation.transactions.ratings.positive * 5)}
+        {renderStars(rating * 5)}
       </div>
     </RatingContainer>
   );
