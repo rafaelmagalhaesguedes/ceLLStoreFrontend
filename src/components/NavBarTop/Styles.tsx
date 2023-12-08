@@ -21,12 +21,29 @@ export const NavTop = styled.nav`
   }
 `;
 
-export const TitleNavTop = styled.h1`
+export const TitleNav = styled.h1`
   font-size: 0.8rem;
   font-weight: normal;
   letter-spacing: 0.9px;
   margin: 0;
   padding: 0 0.6rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const TitleNavTop = styled.h1`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: normal;
+    letter-spacing: 0.9px;
+    margin: 0;
+    padding: 0 0.6rem;
+  }
 `;
 
 export const NavBottomContainer = styled.ul`
